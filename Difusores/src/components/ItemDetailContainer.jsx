@@ -4,14 +4,14 @@ import {getProductsByID} from '../products';
 import Item from '../components/Item';
 
 const ItemDetailContainer = () => {
-  const [product , setProduct] = useState(null)
+  const [product , setProduct] = useState(null);
 
-  const {itemId } = useParams()
+  const {itemId } = useParams();
 
   useEffect(() => {
     getProductsByID(itemId)
-    .then(Response => {
-        setProduct(Response)
+    .then(response => {
+        setProduct(response);
   
     })
     .catch(error => console.error( error));
@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div className='ItemDetailContainer'>
-        <Item {...product}/>
+         {product ? <Item {...product} /> : <p>Loading...</p>}
     </div>
   );
 };

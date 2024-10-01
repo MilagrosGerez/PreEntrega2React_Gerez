@@ -1,4 +1,4 @@
-const products = [
+const Productos = [
     {id: 1, 
      category: 'Dulce',
      name : 'Coco vainilla',
@@ -27,7 +27,7 @@ const products = [
 export const getProducts = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(products);
+        resolve(Productos);
       }, 3000); // Simular un retraso de 1 segundo
     });
   };
@@ -35,7 +35,7 @@ export const getProducts = () => {
   export const getProductsById = (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const item = products.find((item) => item.id === parseInt(id));
+        const item = Productos.find((item) => item.id === parseInt(id));
         resolve(item);
       }, 3000);
     });
@@ -43,7 +43,7 @@ export const getProducts = () => {
 
   export const getProductsByCategory = (categoryId) => {
     return new Promise((resolve) => {
-      const filteredProducts = products.filter(product => product.category === categoryId);
+      const filteredProducts = Productos.filter(product => product.category === categoryId);
       setTimeout(() => {
         resolve(filteredProducts);
       }, 1000); // Simulando una llamada asíncrona con un retraso
