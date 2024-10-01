@@ -1,18 +1,21 @@
-import { Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Link, NavLink, Routes } from "react-router-dom";
 import CartWidget from "./CartWidget"
+import ProductsView from './views/ProductsView/ProductsView';
+import FloralesView from './views/FloralesView/FloralesView';
+import DulcesView from './views/DulcesView/DulcesView';
 
 function NavBar (){
     return (
    <header>
    <nav>
-    <Link to ='/'>
-    <img src="./images/logo_norcita.png" className="rounded float-start" alt="Logo de Jazmín difusores." />
-    </Link>
-        <div>
-            <NavLink to={'/category/Dulces' } className={({isActive}) => isActive ? 'ActiveOption' : 'option '}/>
-            <NavLink to={'/category/Florales' } className={({isActive}) => isActive ? 'ActiveOption' : 'option '}/>
-            <NavLink to={'/category/Productos' } className={({isActive}) => isActive ? 'ActiveOption' : 'option '}/>
-        </div>
+    <BrowserRouter>
+    <Routes>
+        <Route path="/" element={<ProductsView />} />
+        <Route path="/category/Florales" element={<FloralesView />} />
+        <Route path="/category/Dulces" element={<DulcesView />} />
+        <Route path="*" element={<h1>Not found</h1>}/>
+    </Routes>
+    </BrowserRouter>
     </nav>
     <CartWidget/>
    </header>
