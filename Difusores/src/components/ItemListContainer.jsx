@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { getProducts} from '../products';
-import { getProductsByCategory } from '../products';
-
+import {getProductsByCategory} from '../products';
 import { useParams } from 'react-router-dom';
-import ItemList from './ItemList';
+import ItemList from '../components/ItemList';
 
 const ItemListContainer = ({greeting}) => {
   const [products , setProducts] = useState([])
 
-  const {categoryId} = useParams
+  const {categoryId} = useParams()
   useEffect(() => {
 
     const asyncFunc = categoryId ? getProductsByCategory : getProducts

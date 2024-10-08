@@ -1,21 +1,25 @@
-import { BrowserRouter, Link, NavLink, Routes } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget"
-import ProductsView from './views/ProductsView/ProductsView';
-import FloralesView from './views/FloralesView/FloralesView';
-import DulcesView from './views/DulcesView/DulcesView';
 
 function NavBar (){
     return (
    <header>
    <nav>
-    <BrowserRouter>
-    <Routes>
-        <Route path="/" element={<ProductsView />} />
-        <Route path="/category/Florales" element={<FloralesView />} />
-        <Route path="/category/Dulces" element={<DulcesView />} />
-        <Route path="*" element={<h1>Not found</h1>}/>
-    </Routes>
-    </BrowserRouter>
+    <ul>
+    <li>
+      <NavLink to="/">Jazmín Aromas</NavLink>
+    </li>
+   
+    <li>
+      <NavLink to={"/products"}><button>Productos</button></NavLink>
+    </li>
+    <li>
+      <NavLink to={"category/florales"}><button>Aromas Florales</button></NavLink>
+    </li>
+    <li>
+      <NavLink to={"category/dulces"}><button>Aromas Dulces</button></NavLink>
+    </li>
+   </ul>
     </nav>
     <CartWidget/>
    </header>
