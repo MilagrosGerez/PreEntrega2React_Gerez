@@ -1,29 +1,24 @@
 import { useEffect, useState } from 'react';
-import { getProducts} from '../products';
 import {getProductsByCategory} from '../products';
 import { useParams } from 'react-router-dom';
 import ItemList from '../components/ItemList';
 
 const ItemListContainer = ({greeting}) => {
-  const [products , setProducts] = useState([])
+  const [products , setProducts] = useState([]);
 
-  const {categoryId} = useParams()
-  useEffect(() => {
+  const {categoryId} = useParams();
 
-    const asyncFunc = categoryId ? getProductsByCategory : getProducts
 
-    asyncFunc( categoryId )
-    .then(Response => {
-        setProducts(Response)
-      })
-      .catch(Error => {
-        console.error('Error:', Error);
-        setProducts([]) // reset the state if there is an error to avoid stale data
-      }
-      )
-    }, [categoryId]
+  useEffect( () => {
+    if (categoryId) {
+      getProductsByCategory(categoryId)
+       .then((filteredProducts) => {
+        setProducts(filteredProducts);
+       });
+    }
+  }, [categoryId]
 
-    )
+    );
         
     
 

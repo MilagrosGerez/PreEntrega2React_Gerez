@@ -14,10 +14,10 @@ function NavBar (){
       <NavLink to={"/products"}><button>Productos</button></NavLink>
     </li>
     <li>
-      <NavLink to={"category/florales"}><button>Aromas Florales</button></NavLink>
+      <NavLink to={"category/Florales"}><button>Aromas Florales</button></NavLink>
     </li>
     <li>
-      <NavLink to={"category/dulces"}><button>Aromas Dulces</button></NavLink>
+      <NavLink to={"category/Dulce"}><button>Aromas Dulces</button></NavLink>
     </li>
    </ul>
     </nav>

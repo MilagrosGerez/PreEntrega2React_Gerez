@@ -27,7 +27,7 @@ const Products = [
 export const getProducts = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(Productos);
+        resolve( Products);
       }, 3000); // Simular un retraso de 1 segundo
     });
   };
@@ -35,7 +35,7 @@ export const getProducts = () => {
   export const getProductsById = (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const item = Productos.find((item) => item.id === parseInt(id));
+        const item =  Products.find((item) => item.id === parseInt(id));
         resolve(item);
       }, 3000);
     });
@@ -43,7 +43,7 @@ export const getProducts = () => {
 
   export const getProductsByCategory = (categoryId) => {
     return new Promise((resolve) => {
-      const filteredProducts = Productos.filter(product => product.category === categoryId);
+      const filteredProducts =  Products.filter(product => product.category === categoryId);
       setTimeout(() => {
         resolve(filteredProducts);
       }, 1000); // Simulando una llamada asíncrona con un retraso
