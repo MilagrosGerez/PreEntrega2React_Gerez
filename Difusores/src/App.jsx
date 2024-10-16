@@ -20,6 +20,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/" element={<LogoView />} />
+        <Route path="/products" element={<ItemListContainer/>}/>  // si no se especifica categoría, muestra todos los productos
         <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
         <Route path="/item/:itemId" element={<ItemDetailContainer/>}/>
         <Route path="*" element={<h1>Not found</h1>}/>

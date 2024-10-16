@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {getProductsByCategory} from '../products';
+import {getProducts, getProductsByCategory} from '../products';
 import { useParams } from 'react-router-dom';
 import ItemList from '../components/ItemList';
 
@@ -15,7 +15,10 @@ const ItemListContainer = ({greeting}) => {
        .then((filteredProducts) => {
         setProducts(filteredProducts);
        });
-    }
+    } else{
+      getProducts()
+      .then(data => setProducts(data))
+    };
   }, [categoryId]
 
     );
